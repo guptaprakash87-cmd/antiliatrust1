@@ -1,0 +1,71 @@
+<app-header></app-header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="container">
+    <a routerLink="/">Home</a>
+    <span class="separator"><i class="bi bi-chevron-right"></i></span>
+    <span class="current">Gallery</span>
+  </div>
+</div>
+
+
+<section class="page-hero gallery-hero">
+  <div class="container">
+    <span class="page-hero-tag">OUR IMPACT IN IMAGES</span>
+    <h1>A Glimpse Into<br>Our Work</h1>
+    <p>Moments captured from the field — communities thriving, lives changing, hope growing.</p>
+  </div>
+</section>
+
+<!-- FILTER TABS -->
+<section class="filter-section">
+  <div class="container">
+    <div class="filter-tabs">
+      <button
+        *ngFor="let cat of categories"
+        class="filter-tab"
+        [class.active]="activeFilter === cat"
+        (click)="activeFilter = cat">
+        {{ cat }}
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY GRID -->
+<section class="gallery-section">
+  <div class="container">
+    <div class="gallery-grid">
+      <div class="gallery-item" *ngFor="let item of filteredItems">
+        <div class="gallery-visual">
+          <span class="gallery-emoji">{{ item.emoji }}</span>
+        </div>
+        <div class="gallery-overlay">
+          <span class="gallery-cat">{{ item.category }}</span>
+          <h4>{{ item.title }}</h4>
+          <p>{{ item.desc }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="no-results" *ngIf="filteredItems.length === 0">
+      <p>No gallery items in this category yet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO CTA -->
+<section class="video-cta">
+  <div class="container text-center">
+    <div class="play-icon">▶</div>
+    <h2>Watch Our Documentary</h2>
+    <p>A 12-minute film following three lives transformed by AntiliaTrust's programs.</p>
+    <div class="cta-buttons">
+      <button class="btn-cta-primary" routerLink="/impact-stories">Read Stories</button>
+      <button class="btn-cta-outline" routerLink="/contact">Partner With Us</button>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
+

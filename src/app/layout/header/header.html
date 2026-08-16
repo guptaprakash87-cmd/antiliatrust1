@@ -1,0 +1,44 @@
+<nav class="navbar">
+  <div class="container">
+
+    <a class="brand-logo" routerLink="/">
+      <img src="/images/1786731709543.png" alt="Antilia Trust" class="nav-logo-img">
+      <span class="brand-name">Antilia Trust</span>
+    </a>
+
+    <div class="nav-right">
+      <!-- Dark Mode Toggle -->
+      <button class="theme-toggle" (click)="toggleDark()" [title]="darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
+        <i class="bi" [class.bi-sun-fill]="darkMode" [class.bi-moon-fill]="!darkMode"></i>
+      </button>
+
+      <!-- Mobile Hamburger -->
+      <button class="hamburger" (click)="toggleMenu()" aria-label="Menu">
+        <span [class.open]="menuOpen">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Overlay (mobile) -->
+    <div class="nav-overlay" [class.open]="menuOpen" (click)="menuOpen=false"></div>
+
+    <!-- Nav Links -->
+    <div class="nav-links" [class.open]="menuOpen">
+      <button class="nav-close" (click)="menuOpen=false" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="menuOpen=false">Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="active" (click)="menuOpen=false">About</a></li>
+        <li><a routerLink="/our-work" routerLinkActive="active" (click)="menuOpen=false">Our Work</a></li>
+        <li><a routerLink="/impact-stories" routerLinkActive="active" (click)="menuOpen=false">Stories</a></li>
+        <li><a routerLink="/gallery" routerLinkActive="active" (click)="menuOpen=false">Gallery</a></li>
+        <li><a routerLink="/news-events" routerLinkActive="active" (click)="menuOpen=false">News</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" (click)="menuOpen=false">Contact</a></li>
+      </ul>
+      <a routerLink="/contact" class="donate-btn" (click)="menuOpen=false">
+        <i class="bi bi-heart-fill"></i> Donate Now
+      </a>
+    </div>
+
+  </div>
+</nav>

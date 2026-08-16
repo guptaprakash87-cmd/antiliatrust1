@@ -1,0 +1,257 @@
+<app-header></app-header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" [ngStyle]="{'background-image': 'linear-gradient(' + slides[currentSlide].overlay + ', ' + slides[currentSlide].overlay + '), url(' + slides[currentSlide].src + ')'}">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-heading-container">
+        <button class="hero-side-arrow hero-left-arrow" (click)="previousSlide()">&#10094;</button>
+        <div class="hero-text-block">
+          <h1>{{ slides[currentSlide].title }}</h1>
+          <p>{{ slides[currentSlide].description }}</p>
+          <div class="hero-buttons">
+            <button class="btn-hero-primary" routerLink="/our-work">Explore Our Work</button>
+            <button class="btn-hero-outline" routerLink="/impact-stories">Read Stories</button>
+          </div>
+        </div>
+        <button class="hero-side-arrow hero-right-arrow" (click)="nextSlide()">&#10095;</button>
+      </div>
+    </div>
+  </div>
+  <!-- SLIDE DOTS -->
+  <div class="slide-dots">
+    <span *ngFor="let s of slides; let i = index" class="dot" [class.active]="i === currentSlide" (click)="goToSlide(i)"></span>
+  </div>
+  <!-- SCROLL INDICATOR -->
+  <div class="scroll-hint">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats-section">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-6 col-md-3">
+        <div class="stats-card reveal">
+          <h2>{{ livesImpacted | number }}+</h2>
+          <p>Lives Rehabilitated</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stats-card reveal reveal-delay-1">
+          <h2>{{ shelters | number }}+</h2>
+          <p>Shelter Homes</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stats-card reveal reveal-delay-2">
+          <h2>{{ vocationalTrainees | number }}+</h2>
+          <p>Vocational Trainees</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stats-card reveal reveal-delay-3">
+          <h2>{{ districtsReached | number }}+</h2>
+          <p>Districts Covered</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LATEST UPDATES STRIP (Tata Trusts "Latest" section) ===== -->
+<section class="latest-section">
+  <div class="container">
+    <div class="latest-header reveal">
+      <h2>Latest Updates</h2>
+      <a routerLink="/news-events" class="view-all-link">View All <i class="bi bi-arrow-right"></i></a>
+    </div>
+    <div class="latest-strip">
+      <div class="latest-card reveal" *ngFor="let item of latestUpdates; let i = index" [class]="'reveal-delay-' + i">
+        <span class="latest-emoji">{{ item.emoji }}</span>
+        <div class="latest-meta">
+          <span class="latest-tag">{{ item.tag }}</span>
+          <span class="latest-date">{{ item.date }}</span>
+        </div>
+        <h4>{{ item.title }}</h4>
+        <p>{{ item.excerpt }}</p>
+        <a routerLink="/news-events" class="read-more-link">Read more <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EDITORIAL IMPACT STORIES (Tata Trusts masonry layout) ===== -->
+<section class="editorial-section">
+  <div class="container">
+    <div class="editorial-header reveal">
+      <span class="section-tag-label">REAL STORIES · LASTING CHANGE</span>
+      <h2>Impact Stories</h2>
+      <a routerLink="/impact-stories" class="view-all-link">View All <i class="bi bi-arrow-right"></i></a>
+    </div>
+    <div class="editorial-grid">
+      <!-- LEFT COLUMN -->
+      <div class="editorial-left">
+        <!-- BIG STORY -->
+        <div class="editorial-card big-card reveal">
+          <div class="editorial-visual big-visual" style="background-image: url('/images/sampleabout.png'); background-size:cover; background-position:center;">
+            <div class="ed-visual-overlay">
+              <span class="ed-cat-overlay">{{ editorialStories[0].category }}</span>
+            </div>
+          </div>
+          <div class="editorial-caption">
+            <h3>{{ editorialStories[0].title }}</h3>
+            <p class="ed-location"><i class="bi bi-geo-alt-fill"></i> {{ editorialStories[0].location }}</p>
+            <p>{{ editorialStories[0].desc }}</p>
+            <blockquote *ngIf="editorialStories[0].quote">{{ editorialStories[0].quote }}</blockquote>
+            <a routerLink="/impact-stories" class="ed-read-more">Read more <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- TWO HALF STORIES -->
+        <div class="editorial-halves">
+          <div class="editorial-card half-card reveal reveal-delay-1">
+            <div class="editorial-visual half-visual" style="background-image: url('/images/hero.png'); background-size:cover; background-position:center top;">
+              <div class="ed-visual-overlay">
+                <span class="ed-cat-overlay">{{ editorialStories[1].category }}</span>
+              </div>
+            </div>
+            <div class="editorial-caption">
+              <h4>{{ editorialStories[1].title }}</h4>
+              <p class="ed-location"><i class="bi bi-geo-alt-fill"></i> {{ editorialStories[1].location }}</p>
+              <p class="ed-half-desc">{{ editorialStories[1].desc }}</p>
+              <a routerLink="/impact-stories" class="ed-read-more">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="editorial-card half-card reveal reveal-delay-2">
+            <div class="editorial-visual half-visual" style="background-image: url('/images/sampleabout.png'); background-size:cover; background-position:center 30%;">
+              <div class="ed-visual-overlay">
+                <span class="ed-cat-overlay">{{ editorialStories[2].category }}</span>
+              </div>
+            </div>
+            <div class="editorial-caption">
+              <h4>{{ editorialStories[2].title }}</h4>
+              <p class="ed-location"><i class="bi bi-geo-alt-fill"></i> {{ editorialStories[2].location }}</p>
+              <p class="ed-half-desc">{{ editorialStories[2].desc }}</p>
+              <a routerLink="/impact-stories" class="ed-read-more">Read more <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- RIGHT COLUMN: TALL STORY -->
+      <div class="editorial-right reveal reveal-delay-1">
+        <div class="editorial-card tall-card">
+          <div class="editorial-visual tall-visual" style="background-image: url('/images/hero.png'); background-size:cover; background-position:center;">
+            <div class="ed-visual-overlay">
+              <span class="ed-cat-overlay">{{ editorialStories[3].category }}</span>
+            </div>
+          </div>
+          <div class="editorial-caption">
+            <h3>{{ editorialStories[3].title }}</h3>
+            <p class="ed-location"><i class="bi bi-geo-alt-fill"></i> {{ editorialStories[3].location }}</p>
+            <p>{{ editorialStories[3].desc }}</p>
+            <blockquote *ngIf="editorialStories[3].quote">{{ editorialStories[3].quote }}</blockquote>
+            <a routerLink="/impact-stories" class="ed-read-more">Read more <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section class="about-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 reveal">
+        <div class="about-image-wrap">
+          <img src="/images/sampleabout.png" alt="About AntiliaTrust" class="about-img">
+          <div class="about-image-badge">
+            <span class="badge-number">25+</span>
+            <span class="badge-label">Years of Impact</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal reveal-delay-2">
+        <span class="section-tag-label">ABOUT ANTILIATRUST</span>
+        <h2 class="about-title">Restoring Lives, Rebuilding Futures</h2>
+        <p class="about-description">Antilia Trust is dedicated to the rescue, rehabilitation, and reintegration of beggars and destitute persons across Karnataka and India.</p>
+        <p class="about-description">Founded by M/S PRATIMA KUMARI, we believe that every human being deserves a life of dignity. Through our shelter homes, nutrition drives, and skill training programs, we provide the tools and support needed for individuals to transition from the streets to self-reliance.</p>
+        <div class="about-features">
+          <div class="feature-item">✅ Rescue & Shelter</div>
+          <div class="feature-item">✅ Food & Nutrition</div>
+          <div class="feature-item">✅ Skill Training</div>
+          <div class="feature-item">✅ Social Reintegration</div>
+        </div>
+        <a routerLink="/about" class="about-know-more">Know More <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOCUS AREAS VISUAL GRID ===== -->
+<section class="focus-section">
+  <div class="container">
+    <div class="focus-header reveal">
+      <span class="section-tag-label">WHAT WE DO</span>
+      <h2>Areas of Work</h2>
+    </div>
+    <div class="focus-grid">
+      <a class="focus-item reveal" *ngFor="let area of focusAreas; let i = index"
+         [class]="'reveal-delay-' + (i % 4)"
+         routerLink="/our-work"
+         [ngStyle]="{'background-color': area.color, 'border-color': area.accent + '33'}">
+        <div class="focus-icon" [ngStyle]="{'background': area.accent + '18'}">{{ area.emoji }}</div>
+        <h4 [ngStyle]="{'color': area.accent}">{{ area.label }}</h4>
+        <p class="focus-desc">{{ area.desc }}</p>
+        <span class="focus-arrow" [ngStyle]="{'color': area.accent}"><i class="bi bi-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VOICES / TESTIMONIALS (Dark section like Tata Trusts) ===== -->
+<section class="voices-section">
+  <div class="container">
+    <div class="voices-header reveal">
+      <h2>Voices</h2>
+      <div class="voices-tabs">
+        <button class="voice-tab" [class.active]="activeVoiceTab==='leadership'" (click)="setVoiceTab('leadership')">Leadership</button>
+        <button class="voice-tab" [class.active]="activeVoiceTab==='field'" (click)="setVoiceTab('field')">From the Field</button>
+      </div>
+    </div>
+    <div class="voice-card-wrap reveal reveal-delay-1">
+      <button class="voice-nav prev" (click)="prevVoice()">&#10094;</button>
+      <div class="voice-card">
+        <div class="voice-avatar">{{ currentVoices[currentVoice].initials }}</div>
+        <blockquote class="voice-quote">{{ currentVoices[currentVoice].quote }}</blockquote>
+        <div class="voice-byline">
+          <strong>{{ currentVoices[currentVoice].name }}</strong>
+          <span>{{ currentVoices[currentVoice].role }}</span>
+        </div>
+      </div>
+      <button class="voice-nav next" (click)="nextVoice()">&#10095;</button>
+    </div>
+    <div class="voice-dots">
+      <span *ngFor="let v of currentVoices; let i = index" class="dot" [class.active]="i===currentVoice" (click)="currentVoice=i"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRE-FOOTER STORIES BAND ===== -->
+<section class="stories-band">
+  <div class="container">
+    <div class="stories-band-inner reveal">
+      <div>
+        <h2>Real People. Real Transformation.</h2>
+        <p>Every number in our reports is a real human being rescued from the streets. Explore the stories behind the transformation.</p>
+      </div>
+      <a routerLink="/impact-stories" class="stories-band-btn">Explore Stories <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

@@ -1,0 +1,108 @@
+<app-header></app-header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="container">
+    <a routerLink="/">Home</a>
+    <span class="separator"><i class="bi bi-chevron-right"></i></span>
+    <span class="current">About</span>
+  </div>
+</div>
+
+
+<section class="page-hero about-hero">
+  <div class="container">
+    <span class="page-hero-tag">WHO WE ARE</span>
+    <h1>Rescuing the Forgotten,<br>Restoring Dignity</h1>
+    <p>Antilia Trust is dedicated to the rehabilitation of beggars and non-livelihood communities — providing shelter, nutrition, skill training, healthcare and a path back to a dignified life across Karnataka and beyond.</p>
+  </div>
+</section>
+
+<!-- MISSION & VISION -->
+<section class="mv-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="mv-card mission-card">
+          <div class="mv-icon">🎯</div>
+          <h2>Our Mission</h2>
+          <p>To rescue, rehabilitate and reintegrate beggars, destitute persons and non-livelihood communities — restoring their dignity through shelter, food, healthcare, vocational training and social inclusion programs across India.</p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="mv-card vision-card">
+          <div class="mv-icon">🌟</div>
+          <h2>Our Vision</h2>
+          <p>An India where no human being has to beg for survival — where every destitute person is rescued, supported and given the skills and opportunity to live with self-reliance, dignity and belonging in society.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="values-section">
+  <div class="container">
+    <span class="section-tag">WHAT DRIVES US</span>
+    <h2 class="section-title">Our Core Values</h2>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" *ngFor="let v of values">
+        <div class="value-card">
+          <div class="value-icon">{{ v.icon }}</div>
+          <h4>{{ v.title }}</h4>
+          <p>{{ v.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY TIMELINE -->
+<section class="timeline-section">
+  <div class="container">
+    <span class="section-tag">OUR JOURNEY</span>
+    <h2 class="section-title">25 Years of Impact</h2>
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let m of milestones; let i = index" [class.right]="i % 2 !== 0">
+        <div class="timeline-content">
+          <span class="timeline-year">{{ m.year }}</span>
+          <h4>{{ m.title }}</h4>
+          <p>{{ m.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="container">
+    <span class="section-tag">THE PEOPLE BEHIND THE MISSION</span>
+    <h2 class="section-title">Meet Our Leadership</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-3 col-md-6" *ngFor="let member of team">
+        <div class="team-card">
+          <div class="team-avatar">{{ member.initials }}</div>
+          <h4>{{ member.name }}</h4>
+          <span class="team-role">{{ member.role }}</span>
+          <p>{{ member.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+  <div class="container text-center">
+    <h2>Together, We Can End Begging in India</h2>
+    <p>Your support — as a volunteer, donor or partner — directly rescues a life, funds a training session, or puts food on a table for someone who had nothing.</p>
+    <div class="cta-buttons">
+      <button class="btn-cta-primary" routerLink="/contact">Support Our Mission</button>
+      <button class="btn-cta-outline" routerLink="/our-work">See Our Programs</button>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
+

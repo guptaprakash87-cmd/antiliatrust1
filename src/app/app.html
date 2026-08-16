@@ -1,0 +1,12 @@
+<router-outlet></router-outlet>
+
+<!-- Back To Top -->
+<button class="back-to-top" [class.visible]="showBackToTop" (click)="scrollToTop()" aria-label="Back to top">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+<!-- Cookie Notice -->
+<div class="cookie-bar" [class.hidden]="cookieAccepted">
+  <p>🍪 We use cookies to improve your experience. <a routerLink="/contact">Learn more</a></p>
+  <button class="cookie-accept-btn" (click)="acceptCookie()">Accept & Continue</button>
+</div>

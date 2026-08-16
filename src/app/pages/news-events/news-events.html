@@ -1,0 +1,87 @@
+<app-header></app-header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="container">
+    <a routerLink="/">Home</a>
+    <span class="separator"><i class="bi bi-chevron-right"></i></span>
+    <span class="current">News & Events</span>
+  </div>
+</div>
+
+
+<section class="page-hero news-hero">
+  <div class="container">
+    <span class="page-hero-tag">STAY UPDATED</span>
+    <h1>News, Events &<br>Announcements</h1>
+    <p>Follow our latest initiatives, milestones and upcoming programs across India.</p>
+  </div>
+</section>
+
+<!-- LATEST NEWS -->
+<section class="news-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">LATEST NEWS</span>
+      <h2 class="section-title">From the Field</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" *ngFor="let article of news">
+        <div class="news-card">
+          <div class="news-emoji">{{ article.emoji }}</div>
+          <div class="news-meta">
+            <span class="news-tag">{{ article.tag }}</span>
+            <span class="news-date">{{ article.date }}</span>
+          </div>
+          <h4>{{ article.title }}</h4>
+          <p>{{ article.desc }}</p>
+          <button class="read-more-btn">Read More →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UPCOMING EVENTS -->
+<section class="events-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">MARK YOUR CALENDAR</span>
+      <h2 class="section-title">Upcoming Events</h2>
+    </div>
+    <div class="events-list">
+      <div class="event-row" *ngFor="let event of events">
+        <div class="event-date-box">
+          <span class="event-day">{{ event.day }}</span>
+          <span class="event-month">{{ event.month }}</span>
+        </div>
+        <div class="event-info">
+          <div class="event-type">{{ event.type }}</div>
+          <h4>{{ event.title }}</h4>
+          <p class="event-location">📍 {{ event.location }}</p>
+          <p class="event-desc">{{ event.desc }}</p>
+        </div>
+        <div class="event-action">
+          <button class="register-btn" routerLink="/contact">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="container text-center">
+    <div class="newsletter-box">
+      <h2>📬 Stay In the Loop</h2>
+      <p>Subscribe to our newsletter and never miss an update from the field.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Enter your email address" class="email-input">
+        <button class="subscribe-btn">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
+

@@ -1,0 +1,91 @@
+<app-header></app-header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="container">
+    <a routerLink="/">Home</a>
+    <span class="separator"><i class="bi bi-chevron-right"></i></span>
+    <span class="current">Impact Stories</span>
+  </div>
+</div>
+
+
+<section class="page-hero stories-hero">
+  <div class="container">
+    <span class="page-hero-tag">REAL LIVES, REAL CHANGE</span>
+    <h1>Impact Stories That<br>Inspire Action</h1>
+    <p>Every number in our reports is a real person. Read the stories behind the statistics.</p>
+  </div>
+</section>
+
+<!-- FEATURED STORY -->
+<section class="featured-section" *ngIf="featuredStory && activeCategory === 'All'">
+  <div class="container">
+    <div class="featured-card">
+      <div class="featured-badge">⭐ Featured Story</div>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-2 text-center">
+          <div class="story-emoji-big">{{ featuredStory.emoji }}</div>
+        </div>
+        <div class="col-lg-10">
+          <span class="story-category-tag">{{ featuredStory.category }}</span>
+          <h2>{{ featuredStory.title }}</h2>
+          <p class="story-meta">👤 {{ featuredStory.name }} &nbsp;|&nbsp; 📍 {{ featuredStory.location }} &nbsp;|&nbsp; 📅 {{ featuredStory.year }}</p>
+          <p class="story-body">{{ featuredStory.desc }}</p>
+          <blockquote class="story-quote">{{ featuredStory.quote }}</blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER TABS -->
+<section class="filter-section">
+  <div class="container">
+    <div class="filter-tabs">
+      <button
+        *ngFor="let cat of categories"
+        class="filter-tab"
+        [class.active]="activeCategory === cat"
+        (click)="activeCategory = cat">
+        {{ cat }}
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- STORIES GRID -->
+<section class="stories-grid-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" *ngFor="let story of gridStories">
+        <div class="story-card">
+          <div class="story-emoji">{{ story.emoji }}</div>
+          <span class="story-cat-pill">{{ story.category }}</span>
+          <h4>{{ story.title }}</h4>
+          <p class="story-meta-sm">👤 {{ story.name }} &nbsp;·&nbsp; 📍 {{ story.location }}</p>
+          <p class="story-desc">{{ story.desc }}</p>
+          <blockquote class="story-quote-sm">{{ story.quote }}</blockquote>
+        </div>
+      </div>
+    </div>
+    <div class="no-results" *ngIf="gridStories.length === 0">
+      <p>No stories found in this category yet. Check back soon!</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="stories-cta">
+  <div class="container text-center">
+    <h2>Every Story Starts With Your Support</h2>
+    <p>Help us create thousands more stories of transformation.</p>
+    <div class="cta-buttons">
+      <button class="btn-cta-primary" routerLink="/contact">Get Involved</button>
+      <button class="btn-cta-outline" routerLink="/our-work">Explore Programs</button>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
+

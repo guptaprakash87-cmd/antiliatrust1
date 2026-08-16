@@ -1,0 +1,101 @@
+<app-header></app-header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="container">
+    <a routerLink="/">Home</a>
+    <span class="separator"><i class="bi bi-chevron-right"></i></span>
+    <span class="current">Our Work</span>
+  </div>
+</div>
+
+
+<section class="page-hero work-hero">
+  <div class="container">
+    <span class="page-hero-tag">WHAT WE DO</span>
+    <h1>Programs That Transform<br>Communities</h1>
+    <p>From education to environment, our holistic approach ensures every dimension of community well-being is addressed.</p>
+  </div>
+</section>
+
+<!-- CATEGORY FILTER -->
+<section class="filter-section">
+  <div class="container">
+    <div class="filter-tabs">
+      <button
+        *ngFor="let cat of categories"
+        class="filter-tab"
+        [class.active]="activeCategory === cat"
+        (click)="setCategory(cat)">
+        {{ cat }}
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS GRID -->
+<section class="programs-section">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6" *ngFor="let prog of filteredPrograms">
+        <div class="program-card">
+          <div class="program-icon">{{ prog.icon }}</div>
+          <span class="program-category">{{ prog.category }}</span>
+          <h4>{{ prog.title }}</h4>
+          <p>{{ prog.desc }}</p>
+          <div class="program-footer">
+            <span class="beneficiaries">👥 {{ prog.beneficiaries }} Beneficiaries</span>
+            <span class="prog-tag">{{ prog.tag }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT NUMBERS -->
+<section class="impact-numbers">
+  <div class="container">
+    <div class="row text-center g-4">
+      <div class="col-md-3">
+        <div class="impact-num-card">
+          <h2>50,000+</h2>
+          <p>Lives Impacted</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="impact-num-card">
+          <h2>1,200+</h2>
+          <p>Villages Covered</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="impact-num-card">
+          <h2>300+</h2>
+          <p>Active Programs</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="impact-num-card">
+          <h2>25+</h2>
+          <p>States Reached</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="work-cta">
+  <div class="container text-center">
+    <h2>Be Part of the Change</h2>
+    <p>Your support helps us scale these programs to reach millions more across India.</p>
+    <div class="cta-buttons">
+      <button class="btn-cta-primary" routerLink="/contact">Volunteer With Us</button>
+      <button class="btn-cta-outline" routerLink="/impact-stories">Read Stories</button>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
+
