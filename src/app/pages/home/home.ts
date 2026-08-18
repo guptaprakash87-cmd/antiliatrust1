@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   slides = [
     {
-      src: '/images/hero.png',
+      src: '/images/sampleabout.png',
       overlay: 'rgba(7,29,20,0.62)',
       title: 'Restoring Dignity,\nTransforming Lives',
       description: 'Antilia Trust rehabilitates beggars and non-livelihood communities — providing shelter, food, healthcare, skill training and a path back to dignified life.'
@@ -35,16 +35,28 @@ export class HomeComponent implements OnInit, AfterViewInit {
       description: 'Through our rescue, shelter and skill programs, we give every individual a real chance to rebuild their life and re-enter society with confidence.'
     },
     {
-      src: '/images/hero.png',
+      src: '/images/hero_skill_training.jpg',
       overlay: 'rgba(0,60,20,0.70)',
       title: 'Skill Training\nFor Livelihood',
       description: 'We equip rescued individuals with vocational skills — tailoring, carpentry, food processing, mobile repair and more — creating sustainable livelihoods.'
     },
     {
-      src: '/images/hero.png',
+      src: '/images/hero_shelter_home.jpg',
       overlay: 'rgba(5,45,28,0.66)',
-      title: 'Healthcare &\nNutrition for All',
-      description: 'Every destitute person deserves healthcare. Our mobile medical units and nutrition programs serve thousands on the streets and in our shelters.'
+      title: 'Shelter, Food\n& Care for All',
+      description: 'Every destitute person deserves a roof, nutritious meals and compassionate care. Our shelter homes across Karnataka provide safety and dignity to thousands.'
+    },
+    {
+      src: '/images/activity_balloon.jpg',
+      overlay: 'rgba(10,35,20,0.65)',
+      title: 'Engaging Activities\nFor Healing Minds',
+      description: 'Beyond food and shelter, we nurture mental well-being through group activities, workshops and creative sessions at our Antilia Trust centres.'
+    },
+    {
+      src: '/images/children_classroom.jpg',
+      overlay: 'rgba(0,50,25,0.68)',
+      title: 'Education\nFor Every Child',
+      description: 'Children rescued from streets deserve a future. Our bridge education programs ensure every child gets to learn, grow and dream in a safe environment.'
     }
   ];
 

@@ -18,11 +18,12 @@ export class Contact {
   submitted = false;
   success = false;
 
-  contactInfo = [
+  contactInfo: { icon: string; title: string; lines: string[]; image?: string }[] = [
     { icon: '📍', title: 'Registered Office', lines: ['Antilia Trust', 'Shanti Enclave Apartment, Road No 16A', 'Aparna Bank Colony, Ramjaipal Nagar', 'Patna – 801503, Bihar, India'] },
+    { icon: '🏢', title: 'Corporate Address', lines: ['ANTILIA TRUST', '#30, 13th Main, 10th Cross', 'ITI Layout, Bangalore – 560068', 'Karnataka, India'] },
     { icon: '📧', title: 'Email Us', lines: ['antiliatrust@gmail.com', 'Mon – Sat: 9:00 AM – 6:00 PM'] },
     { icon: '📞', title: 'Call Us', lines: ['+91 78924 55405', 'Mon – Sat: 9:00 AM – 6:00 PM IST'] },
-    { icon: '👤', title: 'CEO', lines: ['M/S PRATIMA KUMARI', 'Chief Executive Officer'] },
+    { icon: '👤', title: 'CEO', lines: ['M/S PRATIMA KUMARI', 'Chief Executive Officer'], image: '/images/ceo_pratima_kumari.jpg' },
   ];
 
   subjects = [

@@ -23,10 +23,16 @@
   <div class="container">
     <div class="row g-4 justify-content-center">
       <div class="col-lg-4 col-md-6" *ngFor="let info of contactInfo">
-        <div class="info-card">
-          <div class="info-icon">{{ info.icon }}</div>
-          <h4>{{ info.title }}</h4>
-          <p *ngFor="let line of info.lines">{{ line }}</p>
+        <div class="info-card" [class.ceo-card]="info.image">
+          <!-- CEO photo -->
+          <div class="ceo-photo-wrap" *ngIf="info.image">
+            <img [src]="info.image" [alt]="info.lines[0]" class="ceo-photo">
+          </div>
+          <div class="info-card-body">
+            <div class="info-icon" *ngIf="!info.image">{{ info.icon }}</div>
+            <h4>{{ info.title }}</h4>
+            <p *ngFor="let line of info.lines">{{ line }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -113,7 +119,7 @@
         <div class="map-card">
           <h4>Our Location</h4>
           <iframe
-            src="https://maps.google.com/maps?q=Shanti+Enclave+Apartment,+Road+No+16A,+Aparna+Bank+Colony,+Ramjaipal+Nagar,+Patna&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=ITI+Layout+Bangalore+560068&t=&z=14&ie=UTF8&iwloc=&output=embed"
             width="100%"
             height="320"
             style="border:0; border-radius:16px;"
@@ -122,8 +128,12 @@
           </iframe>
           <div class="quick-contact-list">
             <div class="qc-item">
+              <span>🏢</span>
+              <span><strong>Corporate:</strong> #30, 13th Main, 10th Cross,<br>ITI Layout, Bangalore – 560068</span>
+            </div>
+            <div class="qc-item">
               <span>📍</span>
-              <span>Shanti Enclave, Road No 16A, Patna – 801503</span>
+              <span><strong>Registered:</strong> Shanti Enclave, Road No 16A, Patna – 801503</span>
             </div>
             <div class="qc-item">
               <span>📧</span>

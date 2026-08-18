@@ -3,7 +3,7 @@
 
     <a class="brand-logo" routerLink="/">
       <img src="/images/1786731709543.png" alt="Antilia Trust" class="nav-logo-img">
-      <span class="brand-name">Antilia Trust</span>
+      <span class="brand-name">ANTILIA TRUST</span>
     </a>
 
     <div class="nav-right">
@@ -29,7 +29,82 @@
       <ul>
         <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="menuOpen=false">Home</a></li>
         <li><a routerLink="/about" routerLinkActive="active" (click)="menuOpen=false">About</a></li>
-        <li><a routerLink="/our-work" routerLinkActive="active" (click)="menuOpen=false">Our Work</a></li>
+
+        <!-- OUR PROGRAMS WITH MEGA DROPDOWN -->
+        <li class="has-mega" [class.mega-open]="programsOpen" (mouseenter)="programsOpen=true" (mouseleave)="programsOpen=false">
+          <a routerLink="/our-work" routerLinkActive="active" class="mega-trigger"
+             (click)="onProgramsClick($event)">
+            Our Programs <i class="bi bi-chevron-down mega-chevron"></i>
+          </a>
+
+          <!-- MEGA DROPDOWN PANEL -->
+          <div class="mega-panel" (click)="$event.stopPropagation()">
+            <div class="mega-inner">
+              <p class="mega-heading">Portfolios</p>
+              <div class="mega-grid">
+
+                <!-- Column 1 -->
+                <div class="mega-col">
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Education &amp; Skill Development</span><span class="mega-plus">+</span>
+                  </a>
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Healthcare &amp; Family Welfare</span><span class="mega-plus">+</span>
+                  </a>
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Poverty Alleviation &amp; Rehabilitation</span><span class="mega-plus">+</span>
+                  </a>
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Beggar Welfare &amp; Rehabilitation</span><span class="mega-plus">+</span>
+                  </a>
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Disability &amp; Elderly Support</span><span class="mega-plus">+</span>
+                  </a>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="mega-col">
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Rural Development &amp; Livelihood</span><span class="mega-plus">+</span>
+                  </a>
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Urban Development &amp; Sanitation</span><span class="mega-plus">+</span>
+                  </a>
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Environment &amp; Sustainable Development</span><span class="mega-plus">+</span>
+                  </a>
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Science, Technology &amp; Digital Education</span><span class="mega-plus">+</span>
+                  </a>
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Community Development &amp; Public Utility</span><span class="mega-plus">+</span>
+                  </a>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="mega-col">
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Youth, Sports &amp; Wellness</span><span class="mega-plus">+</span>
+                  </a>
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Women &amp; Child Welfare</span><span class="mega-plus">+</span>
+                  </a>
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Disaster Relief &amp; Rehabilitation</span><span class="mega-plus">+</span>
+                  </a>
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Human Rights &amp; Social Justice</span><span class="mega-plus">+</span>
+                  </a>
+                  <a class="mega-item" routerLink="/our-work" (click)="menuOpen=false; programsOpen=false">
+                    <span>Animal Welfare</span><span class="mega-plus">+</span>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
         <li><a routerLink="/impact-stories" routerLinkActive="active" (click)="menuOpen=false">Stories</a></li>
         <li><a routerLink="/gallery" routerLinkActive="active" (click)="menuOpen=false">Gallery</a></li>
         <li><a routerLink="/news-events" routerLinkActive="active" (click)="menuOpen=false">News</a></li>

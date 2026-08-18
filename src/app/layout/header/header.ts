@@ -13,14 +13,38 @@ import { filter } from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
   menuOpen = false;
   darkMode = false;
+  programsOpen = false;
 
   constructor(private router: Router) {}
 
   ngOnInit() {
     this.darkMode = document.documentElement.classList.contains('dark');
+    // Close mega menu on route change
+    this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => {
+      this.programsOpen = false;
+      this.menuOpen = false;
+    });
   }
 
   toggleMenu() { this.menuOpen = !this.menuOpen; }
+
+  /** On mobile tap, toggle dropdown; on desktop let routerLink navigate */
+  onProgramsClick(event: MouseEvent) {
+    const isMobile = window.innerWidth <= 1024;
+    if (isMobile) {
+      event.preventDefault();
+      this.programsOpen = !this.programsOpen;
+    }
+  }
+
+  /** Close mega menu when clicking anywhere outside */
+  @HostListener('document:click', ['$event'])
+  onDocClick(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.has-mega')) {
+      this.programsOpen = false;
+    }
+  }
 
   toggleDark() {
     this.darkMode = !this.darkMode;
