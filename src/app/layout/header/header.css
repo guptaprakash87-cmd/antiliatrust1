@@ -258,6 +258,19 @@
   transform: translateY(0);
 }
 
+/* About panel is narrower — fewer items */
+.about-mega-panel {
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%) translateY(-8px);
+  min-width: 680px;
+  max-width: 780px;
+}
+.has-mega:hover .about-mega-panel,
+.has-mega.mega-open .about-mega-panel {
+  transform: translateX(-50%) translateY(0);
+}
+
 .mega-inner {
   max-width: 1100px;
   margin: 0 auto;

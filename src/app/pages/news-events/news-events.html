@@ -42,32 +42,7 @@
   </div>
 </section>
 
-<!-- UPCOMING EVENTS -->
-<section class="events-section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-tag">MARK YOUR CALENDAR</span>
-      <h2 class="section-title">Upcoming Events</h2>
-    </div>
-    <div class="events-list">
-      <div class="event-row" *ngFor="let event of events">
-        <div class="event-date-box">
-          <span class="event-day">{{ event.day }}</span>
-          <span class="event-month">{{ event.month }}</span>
-        </div>
-        <div class="event-info">
-          <div class="event-type">{{ event.type }}</div>
-          <h4>{{ event.title }}</h4>
-          <p class="event-location">📍 {{ event.location }}</p>
-          <p class="event-desc">{{ event.desc }}</p>
-        </div>
-        <div class="event-action">
-          <button class="register-btn" routerLink="/contact">Register</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- NEWSLETTER -->
 <section class="newsletter-section">

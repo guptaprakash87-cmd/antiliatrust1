@@ -57,22 +57,7 @@
   </div>
 </section>
 
-<!-- JOURNEY TIMELINE -->
-<section class="timeline-section">
-  <div class="container">
-    <span class="section-tag">OUR JOURNEY</span>
-    <h2 class="section-title">25 Years of Impact</h2>
-    <div class="timeline">
-      <div class="timeline-item" *ngFor="let m of milestones; let i = index" [class.right]="i % 2 !== 0">
-        <div class="timeline-content">
-          <span class="timeline-year">{{ m.year }}</span>
-          <h4>{{ m.title }}</h4>
-          <p>{{ m.desc }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- TEAM -->
 <section class="team-section">
@@ -82,7 +67,10 @@
     <div class="row g-4 justify-content-center">
       <div class="col-lg-3 col-md-6" *ngFor="let member of team">
         <div class="team-card">
-          <div class="team-avatar">{{ member.initials }}</div>
+          <div class="team-avatar">
+            <img *ngIf="member.photo" [src]="member.photo" [alt]="member.name" class="team-photo">
+            <span *ngIf="!member.photo">{{ member.initials }}</span>
+          </div>
           <h4>{{ member.name }}</h4>
           <span class="team-role">{{ member.role }}</span>
           <p>{{ member.desc }}</p>

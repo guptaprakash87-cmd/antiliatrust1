@@ -28,7 +28,46 @@
       <button class="nav-close" (click)="menuOpen=false" aria-label="Close"><i class="bi bi-x-lg"></i></button>
       <ul>
         <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="menuOpen=false">Home</a></li>
-        <li><a routerLink="/about" routerLinkActive="active" (click)="menuOpen=false">About</a></li>
+
+        <!-- ABOUT US WITH MEGA DROPDOWN -->
+        <li class="has-mega" [class.mega-open]="aboutOpen" (mouseenter)="aboutOpen=true" (mouseleave)="aboutOpen=false">
+          <a routerLink="/about" routerLinkActive="active" class="mega-trigger"
+             (click)="onAboutClick($event)">
+            About <i class="bi bi-chevron-down mega-chevron"></i>
+          </a>
+          <!-- ABOUT MEGA PANEL -->
+          <div class="mega-panel about-mega-panel" (click)="$event.stopPropagation()">
+            <div class="mega-inner">
+              <p class="mega-heading">About ANTILIA TRUST</p>
+              <div class="mega-grid">
+                <!-- Column 1 -->
+                <div class="mega-col">
+                  <a class="mega-item" routerLink="/about" (click)="menuOpen=false; aboutOpen=false">
+                    <span>Overview</span>
+                  </a>
+                  <a class="mega-item" routerLink="/about" (click)="menuOpen=false; aboutOpen=false">
+                    <span>Leadership</span>
+                  </a>
+                </div>
+                <!-- Column 2 -->
+                <div class="mega-col">
+                  <a class="mega-item" routerLink="/about" (click)="menuOpen=false; aboutOpen=false">
+                    <span>Board of Trustees</span><span class="mega-plus">+</span>
+                  </a>
+                  <a class="mega-item" routerLink="/about" (click)="menuOpen=false; aboutOpen=false">
+                    <span>History</span><span class="mega-plus">+</span>
+                  </a>
+                </div>
+                <!-- Column 3 -->
+                <div class="mega-col">
+                  <a class="mega-item" routerLink="/about" (click)="menuOpen=false; aboutOpen=false">
+                    <span>Annual Reports &amp; Financial Declaration</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
 
         <!-- OUR PROGRAMS WITH MEGA DROPDOWN -->
         <li class="has-mega" [class.mega-open]="programsOpen" (mouseenter)="programsOpen=true" (mouseleave)="programsOpen=false">

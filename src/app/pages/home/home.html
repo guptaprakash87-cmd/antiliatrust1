@@ -2,32 +2,40 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero" [ngStyle]="{'background-image': 'linear-gradient(' + slides[currentSlide].overlay + ', ' + slides[currentSlide].overlay + '), url(' + slides[currentSlide].src + ')'}">
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-heading-container">
-        <button class="hero-side-arrow hero-left-arrow" (click)="previousSlide()">&#10094;</button>
-        <div class="hero-text-block">
-          <h1>{{ slides[currentSlide].title }}</h1>
-          <p>{{ slides[currentSlide].description }}</p>
-          <div class="hero-buttons">
-            <button class="btn-hero-primary" routerLink="/our-work">Explore Our Work</button>
-            <button class="btn-hero-outline" routerLink="/impact-stories">Read Stories</button>
-          </div>
+
+  <!-- CONTENT ANCHORED TO BOTTOM -->
+  <div class="hero-bottom-wrap">
+    <div class="container">
+
+      <!-- TEXT BLOCK -->
+      <div class="hero-text-block">
+        <h1>{{ slides[currentSlide].title }}</h1>
+        <p>{{ slides[currentSlide].description }}</p>
+        <div class="hero-buttons">
+          <button class="btn-hero-primary" routerLink="/our-work">Explore Our Work</button>
+          <button class="btn-hero-outline" routerLink="/impact-stories">Read Stories</button>
         </div>
-        <button class="hero-side-arrow hero-right-arrow" (click)="nextSlide()">&#10095;</button>
       </div>
+
+      <!-- BOTTOM NAV BAR: arrows + dots -->
+      <div class="hero-nav-bar">
+        <button class="hero-arrow" (click)="previousSlide()">&#10094;</button>
+        <div class="slide-dots-inline">
+          <span *ngFor="let s of slides; let i = index"
+                class="dot" [class.active]="i === currentSlide"
+                (click)="goToSlide(i)"></span>
+        </div>
+        <button class="hero-arrow" (click)="nextSlide()">&#10095;</button>
+      </div>
+
     </div>
   </div>
-  <!-- SLIDE DOTS -->
-  <div class="slide-dots">
-    <span *ngFor="let s of slides; let i = index" class="dot" [class.active]="i === currentSlide" (click)="goToSlide(i)"></span>
-  </div>
+
   <!-- SCROLL INDICATOR -->
   <div class="scroll-hint">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </div>
+
 </section>
 
 <!-- ===== STATS ===== -->
@@ -168,9 +176,9 @@
     <div class="row align-items-center g-5">
       <div class="col-lg-6 reveal">
         <div class="about-image-wrap">
-          <img src="/images/sampleabout.png" alt="About AntiliaTrust" class="about-img">
+          <img src="/images/about_activity.jpg" alt="About AntiliaTrust" class="about-img">
           <div class="about-image-badge">
-            <span class="badge-number">25+</span>
+            <span class="badge-number">3+</span>
             <span class="badge-label">Years of Impact</span>
           </div>
         </div>
@@ -179,7 +187,7 @@
         <span class="section-tag-label">ABOUT ANTILIATRUST</span>
         <h2 class="about-title">Restoring Lives, Rebuilding Futures</h2>
         <p class="about-description">Antilia Trust is dedicated to the rescue, rehabilitation, and reintegration of beggars and destitute persons across Karnataka and India.</p>
-        <p class="about-description">Founded by M/S PRATIMA KUMARI, we believe that every human being deserves a life of dignity. Through our shelter homes, nutrition drives, and skill training programs, we provide the tools and support needed for individuals to transition from the streets to self-reliance.</p>
+        <p class="about-description">Founded by MR. OM PRAKASH GUPTA, we believe that every human being deserves a life of dignity. Through our shelter homes, nutrition drives, and skill training programs, we provide the tools and support needed for individuals to transition from the streets to self-reliance.</p>
         <div class="about-features">
           <div class="feature-item">✅ Rescue & Shelter</div>
           <div class="feature-item">✅ Food & Nutrition</div>
@@ -226,7 +234,10 @@
     <div class="voice-card-wrap reveal reveal-delay-1">
       <button class="voice-nav prev" (click)="prevVoice()">&#10094;</button>
       <div class="voice-card">
-        <div class="voice-avatar">{{ currentVoices[currentVoice].initials }}</div>
+        <div class="voice-avatar">
+          <img *ngIf="currentVoices[currentVoice].photo" [src]="currentVoices[currentVoice].photo" [alt]="currentVoices[currentVoice].name" class="voice-photo">
+          <span *ngIf="!currentVoices[currentVoice].photo">{{ currentVoices[currentVoice].initials }}</span>
+        </div>
         <blockquote class="voice-quote">{{ currentVoices[currentVoice].quote }}</blockquote>
         <div class="voice-byline">
           <strong>{{ currentVoices[currentVoice].name }}</strong>

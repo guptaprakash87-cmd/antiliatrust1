@@ -1,4 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { filter } from 'rxjs/operators';
@@ -14,14 +15,18 @@ export class HeaderComponent implements OnInit {
   menuOpen = false;
   darkMode = false;
   programsOpen = false;
+  aboutOpen = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {}
 
   ngOnInit() {
-    this.darkMode = document.documentElement.classList.contains('dark');
+    if (isPlatformBrowser(this.platformId)) {
+      this.darkMode = document.documentElement.classList.contains('dark');
+    }
     // Close mega menu on route change
     this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => {
       this.programsOpen = false;
+      this.aboutOpen = false;
       this.menuOpen = false;
     });
   }
@@ -30,10 +35,20 @@ export class HeaderComponent implements OnInit {
 
   /** On mobile tap, toggle dropdown; on desktop let routerLink navigate */
   onProgramsClick(event: MouseEvent) {
+    if (!isPlatformBrowser(this.platformId)) return;
     const isMobile = window.innerWidth <= 1024;
     if (isMobile) {
       event.preventDefault();
       this.programsOpen = !this.programsOpen;
+    }
+  }
+
+  onAboutClick(event: MouseEvent) {
+    if (!isPlatformBrowser(this.platformId)) return;
+    const isMobile = window.innerWidth <= 1024;
+    if (isMobile) {
+      event.preventDefault();
+      this.aboutOpen = !this.aboutOpen;
     }
   }
 
@@ -43,10 +58,12 @@ export class HeaderComponent implements OnInit {
     const target = event.target as HTMLElement;
     if (!target.closest('.has-mega')) {
       this.programsOpen = false;
+      this.aboutOpen = false;
     }
   }
 
   toggleDark() {
+    if (!isPlatformBrowser(this.platformId)) return;
     this.darkMode = !this.darkMode;
     if (this.darkMode) {
       document.documentElement.classList.add('dark');

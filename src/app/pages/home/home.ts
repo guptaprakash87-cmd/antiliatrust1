@@ -23,6 +23,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   slides = [
     {
+      src: '/images/hero_antilia_collage.jpg',
+      overlay: 'rgba(5,20,12,0.42)',
+      title: '',
+      description: 'Antilia Trust rehabilitates beggars and non-livelihood communities — providing shelter, food, healthcare, skill training and a path back to dignified life.'
+    },
+    {
       src: '/images/sampleabout.png',
       overlay: 'rgba(7,29,20,0.62)',
       title: 'Restoring Dignity,\nTransforming Lives',
@@ -113,19 +119,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
   voices = {
     leadership: [
       {
-        initials: 'PK',
-        name: 'M/S PRATIMA KUMARI',
-        role: 'Chief Executive Officer, Antilia Trust',
+        initials: 'OG',
+        photo: '/images/founder_om_prakash_gupta.jpg',
+        name: 'MR. OM PRAKASH GUPTA',
+        role: 'Founder & Chief Executive Officer, Antilia Trust',
         quote: '"Every person on the street is a human being with a story, a past and potential. Our work is not charity — it is about restoring what society took away: dignity, belonging and a future."'
       },
       {
         initials: 'RS',
+        photo: '',
         name: 'Ramesh Sharma',
         role: 'Director – Shelter & Rehabilitation',
         quote: '"Rehabilitation is not just giving a roof. It is rebuilding the person inside — their confidence, their skills and their identity. We do not give up on anyone."'
       },
       {
         initials: 'AN',
+        photo: '',
         name: 'Anitha Nair',
         role: 'Head – Skills & Livelihood Program',
         quote: '"A skill is the most powerful thing you can give a person. Once they can earn, they can stand on their own. That is where real change begins."'
@@ -134,18 +143,21 @@ export class HomeComponent implements OnInit, AfterViewInit {
     field: [
       {
         initials: 'RV',
+        photo: '',
         name: 'Ramu Verma',
         role: 'Rescued from Bangalore Majestic, 2022',
         quote: '"I begged for 12 years. I thought that was my destiny. Today I run my own carpentry workshop. I never imagined this was possible. Antilia Trust changed everything."'
       },
       {
         initials: 'RK',
+        photo: '',
         name: 'Rekha Kumari',
         role: 'Shelter Resident & Tailoring Trainee',
         quote: '"They gave us food and a room. But more than that, they made us feel like we belong. Now I stitch school uniforms and can send my children to school."'
       },
       {
         initials: 'SM',
+        photo: '',
         name: 'Suresh Munda',
         role: 'Reunited with Family, Mysore',
         quote: '"I lost my mind and my family for 4 years. The Trust found me on the road, gave me medicine and counselling, and found my family. I am home now."'

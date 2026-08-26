@@ -24,10 +24,11 @@ export class About {
 
   team = [
     {
-      name: 'M/S PRATIMA KUMARI',
-      role: 'Chief Executive Officer',
-      desc: 'Pratima Kumari is the founder and CEO of Antilia Trust. Her unwavering dedication to rescuing and rehabilitating beggars and destitute persons has transformed thousands of lives across Karnataka and beyond.',
-      initials: 'PK'
+      name: 'MR. OM PRAKASH GUPTA',
+      role: 'Founder & Chief Executive Officer',
+      desc: 'Om Prakash Gupta is the Founder and CEO of Antilia Trust. His unwavering dedication to rescuing and rehabilitating beggars and destitute persons has transformed thousands of lives across Karnataka and beyond.',
+      initials: 'OG',
+      photo: '/images/founder_om_prakash_gupta.jpg'
     }
   ];
 

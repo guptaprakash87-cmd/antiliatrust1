@@ -1,4 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -12,7 +13,10 @@ export class App implements OnInit {
   showBackToTop = false;
   cookieAccepted = false;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngOnInit() {
+    if (!isPlatformBrowser(this.platformId)) return;
     this.cookieAccepted = localStorage.getItem('cookieAccepted') === 'true';
     // Apply saved dark mode preference
     const saved = localStorage.getItem('darkMode');
